@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TS-App New Teacher Experience</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            margin-top: 20px;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">TS-App</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Schedule</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Rating</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">New Lesson</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Finances</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Messages</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Welcome, New Teacher!</h2>
+        <p>Please complete your profile by filling out the information below.</p>
+        
+        <form>
+            <div class="form-group">
+                <label for="teacherName">Full Name</label>
+                <input type="text" class="form-control" id="teacherName" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="teacherEmail">Email</label>
+                <input type="email" class="form-control" id="teacherEmail" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="teacherExperience">Teaching Experience</label>
+                <textarea class="form-control" id="teacherExperience" rows="3" placeholder="Describe your teaching experience" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="teacherAvailability">Availability</label>
+                <input type="text" class="form-control" id="teacherAvailability" placeholder="Enter your availability (e.g., weekdays 9 AM - 5 PM)" required>
+            </div>
+            <div class="form-group">
+                <label for="lessonFees">Lesson Fees</label>
+                <input type="number" class="form-control" id="lessonFees" placeholder="Enter your lesson fee per hour" required>
+            </div>
+
+            <h4>Select Subjects and Levels</h4>
+
+            <div class="form-group">
+                <label for="englishLevels">English Language</label>
+                <select multiple class="form-control" id="englishLevels">
+                    <option>B1</option>
+                    <option>B2</option>
+                    <option>C1 (Advanced)</option>
+                    <option>C2 (Proficient)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mathLevels">Math</label>
+                <select multiple class="form-control" id="mathLevels">
+                    <option>9-12 Grade School Program</option>
+                    <option>College Level</option>
+                    <option>Advanced Topics</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="programmingLanguages">Programming Languages</label>
+                <select multiple class="form-control" id="programmingLanguages">
+                    <option>Python</option>
+                    <option>JavaScript</option>
+                    <option>Java</option>
+                    <option>C++</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 TS-App. All rights reserved.</p>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
