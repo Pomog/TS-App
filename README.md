@@ -17,6 +17,7 @@ Represents an educational institution that manages teachers and students.
   - `name`: String
   - `address`: String
   - `email`: String
+  - `password`: String
   - `teachers`: List<Teacher>
   - `students`: List<Student>
 
@@ -28,11 +29,25 @@ Represents an educator employed by an organization.
   - `id`: Long
   - `name`: String
   - `email`: String
+  - `password`: String
   - `subject`: String
   - `organization`: Organization
   - `plannedLessons`: List<Lesson>
   - `completedLessons`: List<Lesson>
   - `paymentsFromStudents`: List<Payment>
+
+### LessonAssesment
+
+Represents student assessment of the lesson.
+
+- **Attributes:**
+  - `id`: Long
+  - `time`: LocalDateTime
+  - `lesson`: Lesson
+  - `accuracy_patience`: int (from 0 to 5)
+  - `explanation`: int (from 0 to 5)
+  - `teaching_materials`: int (from 0 to 5)
+  - `responsiveness`: int (from 0 to 5)
 
 ### Student
 
@@ -42,6 +57,7 @@ Represents a learner enrolled in an organization.
   - `id`: Long
   - `name`: String
   - `email`: String
+  - `password`: String
   - `organization`: Organization
   - `plannedLessons`: List<Lesson>
   - `completedLessons`: List<Lesson>
@@ -55,12 +71,27 @@ Represents a scheduled or completed lesson.
   - `id`: Long
   - `title`: String
   - `startTime`: LocalDateTime
+  - `endTime`: LocalDateTime
   - `videoUrl`: URL
   - `materialUrl`: List<URL>
   - `teacher`: Teacher
   - `student`: Student
   - `realizationStatus`: Boolean (planned or completed)
   - `paymentStatus`: Boolean
+  - `lessonAssesment` : LessonAssesment
+
+### PersonalCabinet
+
+Represents a learner enrolled in an organization.
+
+- **Attributes:**
+  - `id`: Long
+  - `personID`: Long
+  - `email`: String
+  - `organization`: Organization
+  - `plannedLessons`: List<Lesson>
+  - `completedLessons`: List<Lesson>
+  - `payment`: List<Payment>
 
 ### Payment
 
