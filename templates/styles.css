@@ -6,12 +6,17 @@
 
 table {
     border-collapse: collapse;
+    width: 100%;
 }
 
 th, td {
     border-right: 1px solid coral;
     border-bottom: 1px solid coral;
-    height:2em;
+    height: 2em;
+    width: 128px; /* Set a fixed width for table cells */
+    min-width: 128px; /* Ensure minimum width for table cells */
+    text-align: center;
+    white-space: nowrap; /* Prevent collapsing */
 }
 
 .start-lesson {
@@ -25,10 +30,6 @@ th, td {
 th:last-child,
 td:last-child {
     border-right: none;
-}
-
-td {
-    text-align: center;
 }
 
 td:hover {
