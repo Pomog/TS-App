@@ -32,11 +32,13 @@ Represents an educator employed by an organization.
   - `password`: String
   - `subject`: String
   - `organization`: Organization
+  - `startHour` : Integer // a preferred hour to start lessons 24h format
+  - `endtHour` : Integer // a preferred hour to finish lessons 24h format
   - `plannedLessons`: List<Lesson>
   - `completedLessons`: List<Lesson>
   - `paymentsFromStudents`: List<Payment>
 
-### LessonAssesment
+### LessonAssessment
 
 Represents student assessment of the lesson.
 

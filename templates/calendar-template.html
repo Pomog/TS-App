@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Calendar Table Template</title>
+
+    <link rel="stylesheet" href="/templates/styles.css">
+</head>
+<body>
+
+<h1>Interactive Calendar</h1>
+
+<div id="calendar-wrapper" class="calendar-wrapper">
+    <table id="calendar-table" class="calendar-table">
+        <caption>Lessons calendar</caption>
+        <thead id="calendar-head">
+        <tr id="monthRow">
+            <!-- Placeholder for the month name -->
+        </tr>
+
+        <tr id="daysOfTheMonth">
+            <th></th> <!-- the column for display time -->
+        </tr>
+        </thead>
+        <tbody id="calendar-body">
+        </tbody>
+    </table>
+</div>
+
+<!-- functions to populate HTML -->
+<script src="/templates/populateHTML.js"></script>
+<script src="/templates/mock-data.js"></script>
+
+<script>
+    // populate the table headers dynamically
+    document.addEventListener('DOMContentLoaded', function() {
+        CalendarModule.populateCalendar(2024, 1, teacher);
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+#calendar-wrapper {
+    width: 80%;
+    overflow: auto;
+    border: 2px solid MediumSeaGreen;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    border-right: 1px solid coral;
+    border-bottom: 1px solid coral;
+    height:2em;
+}
+
+.start-lesson {
+    border-top: 2px solid black;
+}
+
+.end-lesson {
+    border-bottom: 2px solid black;
+}
+
+th:last-child,
+td:last-child {
+    border-right: none;
+}
+
+td {
+    text-align: center;
+}
+
+td:hover {
+    background-color: rgba(60, 60, 60, 0.05);
+}
+
+.timeOccupied {
+    background-color: rgba(128, 128, 128, 0.4);
+}
+
+body {
+    background-color: antiquewhite;
+}
