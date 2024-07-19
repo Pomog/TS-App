@@ -32,8 +32,16 @@ const lesson3 = {
     paymentStatus: false
 }
 
+const lesson4 = {
+    topic: "Slang and Colloquial Language",
+    startTime: new Date(2024, 6, 25, 11, 30),
+    endTime: new Date(2024, 6, 25, 16, 15),
+    student: student2,
+    paymentStatus: true
+}
 
-const plannedLessons = [lesson1, lesson2, lesson3]
+
+const plannedLessons = [lesson1, lesson2,lesson3, lesson4]
 
 const teacher = {
     startTime: 9,
