@@ -71,16 +71,18 @@ Represents a scheduled or completed lesson.
 
 - **Attributes:**
   - `id`: Long
-  - `title`: String
+  - `topic`: String
   - `startTime`: LocalDateTime
   - `endTime`: LocalDateTime
   - `videoUrl`: URL
   - `materialUrl`: List<URL>
   - `teacher`: Teacher
   - `student`: Student
+  - `approvedByTeacher`: Boolean
+  - `approvedByStudent`: Boolean
   - `realizationStatus`: Boolean (planned or completed)
   - `paymentStatus`: Boolean
-  - `lessonAssesment` : LessonAssesment
+  - `lessonAssesment` : LessonAssessment
 
 ### PersonalCabinet
 
