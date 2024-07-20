@@ -10,32 +10,32 @@ const student2 = {
 
 const lesson1 = {
     topic: "People and Cultures",
-    startTime: new Date(2024, 6, 1, 10, 0),
-    endTime: new Date(2024, 6, 1, 11, 0),
+    startTime: new Date(2024, 6, 20, 10, 0),
+    endTime: new Date(2024, 6, 20, 11, 0),
     student: student1,
     paymentStatus: true
 }
 
 const lesson2 = {
     topic: "House and Home",
-    startTime: new Date(2024, 6, 2, 13, 0),
-    endTime: new Date(2024, 6, 2, 18, 0),
+    startTime: new Date(2024, 6, 20, 13, 0),
+    endTime: new Date(2024, 6, 20, 18, 0),
     student: student1,
     paymentStatus: true
 }
 
 const lesson3 = {
     topic: "Slang and Colloquial Language",
-    startTime: new Date(2024, 6, 1, 11, 30),
-    endTime: new Date(2024, 6, 1, 12, 30),
+    startTime: new Date(2024, 6, 20, 11, 30),
+    endTime: new Date(2024, 6, 20, 12, 30),
     student: student2,
     paymentStatus: false
 }
 
 const lesson4 = {
     topic: "Slang and Colloquial Language",
-    startTime: new Date(2024, 6, 25, 11, 30),
-    endTime: new Date(2024, 6, 25, 16, 15),
+    startTime: new Date(2024, 6, 21, 11, 30),
+    endTime: new Date(2024, 6, 21, 16, 15),
     student: student2,
     paymentStatus: true
 }

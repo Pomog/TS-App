@@ -3,3 +3,11 @@
     overflow: auto;
     border: 2px solid MediumSeaGreen;
 }
+
+.fc-event-time {
+    display: block;
+}
+.fc-event-title {
+    display: block;
+    padding-left: 1em; /* indentation for the lesson title */
+}
