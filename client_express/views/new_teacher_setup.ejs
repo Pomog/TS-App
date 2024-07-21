@@ -158,12 +158,13 @@
     <script>
         document.getElementById('teacherForm').addEventListener('submit', function(event) {
             const newCategory = document.getElementById('newCategory').value.trim();
+            const newSubject = document.getElementById('newSubject').value.trim();
             const newLevel = document.getElementById('newLevel').value.trim();
             if (newCategory && newLevel) {
                 const subjectsSelect = document.createElement('input');
                 subjectsSelect.type = 'hidden';
                 subjectsSelect.name = 'subjects[]';
-                subjectsSelect.value = `${newCategory} - ${newLevel}`;
+                subjectsSelect.value = `${newCategory}:${newSubject} - ${newLevel}`;
                 this.appendChild(subjectsSelect);
             }
         });
