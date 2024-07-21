@@ -1,7 +1,6 @@
 // Organization class
 class Organization {
-    constructor(id, name, address, email, password, teachers = [], students = []) {
-        this.id = id || 1;
+    constructor(name, address, email, password, teachers = [], students = []) {
         this.name = name || 'Default Organization';
         this.address = address || '123 Main St';
         this.email = email || 'org@example.com';
@@ -13,26 +12,35 @@ class Organization {
 
 // Teacher class
 class Teacher {
-    constructor(id, name, email, password, info, subject, organization, startHour, endHour, plannedLessons = [], completedLessons = [], paymentsFromStudents = []) {
-        this.id = id || 1;
+    constructor(name, email, password, info, subject, organization, startHour, startMin, endHour, endMin, plannedLessons = [], completedLessons = [], paymentsFromStudents = []) {
         this.name = name || 'Default Teacher';
         this.email = email || 'teacher@example.com';
         this.password = password || 'password';
         this.info = info || 'Default Info';
         this.subject = subject || 'Default Subject';
         this.organization = organization || new Organization();
-        this.startHour = startHour || new Date(2024, 0, 1, 9, 0); // Default start time 09:00
-        this.endHour = endHour || new Date(2024, 0, 1, 17, 0); // Default end time 17:00
+        this.startHour = startHour || 9 // Default start time 09:00
+        this.startMin = startMin
+        this.endHour = endHour || 17 // Default end time 17:00
+        this.endMin = endMin
         this.plannedLessons = plannedLessons;
         this.completedLessons = completedLessons;
         this.paymentsFromStudents = paymentsFromStudents;
     }
 }
 
+//Subject class
+class Subject {
+    constructor(category, subject, level){
+        this.category = category || "Programming";
+        this.subject = subject || "Python";
+        this.level = level || "advanced"
+    }
+}
+
 // LessonAssessment class
 class LessonAssessment {
-    constructor(id, time, lesson, accuracy_patience, explanation, teaching_materials, responsiveness) {
-        this.id = id || 1;
+    constructor(time, lesson, accuracy_patience, explanation, teaching_materials, responsiveness) {
         this.time = time || 1; //duration of the lesson
         this.lesson = lesson || null; // Should be an instance of Lesson
         this.accuracy_patience = accuracy_patience || 1; //from 1 to 5
@@ -44,8 +52,7 @@ class LessonAssessment {
 
 // Student class
 class Student {
-    constructor(id, name, email, password, organization, plannedLessons = [], completedLessons = [], paymentsToTeacher = []) {
-        this.id = id || 1;
+    constructor(name, email, password, organization, plannedLessons = [], completedLessons = [], paymentsToTeacher = []) {
         this.name = name || 'Default Student';
         this.email = email || 'student@example.com';
         this.password = password || 'password';
@@ -58,8 +65,7 @@ class Student {
 
 // Lesson class
 class Lesson {
-    constructor(id, topic, startTime, endTime, videoUrl, materialUrl = [], teacher, student, approvedByTeacher, approvedByStudent, realizationStatus, paymentStatus, lessonAssessment) {
-        this.id = id || 1;
+    constructor(topic, startTime, endTime, videoUrl, materialUrl = [], teacher, student, approvedByTeacher, approvedByStudent, realizationStatus, paymentStatus, lessonAssessment) {
         this.topic = topic || 'Default Topic';
         this.startTime = startTime || new Date(2024, 0, 1, 9, 0);
         this.endTime = endTime || new Date(2024, 0, 1, 10, 0);
@@ -77,8 +83,7 @@ class Lesson {
 
 // PersonalCabinet class
 class PersonalCabinet {
-    constructor(id, personID, email, organization, plannedLessons = [], completedLessons = [], payment = []) {
-        this.id = id || 1;
+    constructor(personemail, organization, plannedLessons = [], completedLessons = [], payment = []) {
         this.personID = personID || 1;
         this.email = email || 'personal@example.com';
         this.organization = organization || new Organization();
@@ -90,8 +95,7 @@ class PersonalCabinet {
 
 // Payment class
 class Payment {
-    constructor(id, amount, arrangedDate, paymentDate, student, lesson) {
-        this.id = id || 1;
+    constructor(amount, arrangedDate, paymentDate, student, lesson) {
         this.amount = amount || BigInt(100);
         this.arrangedDate = arrangedDate || new Date(2024, 0, 1, 9, 0);
         this.paymentDate = paymentDate || new Date(2024, 0, 1, 13, 0);;

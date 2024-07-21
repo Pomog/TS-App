@@ -31,13 +31,26 @@ Represents an educator employed by an organization.
   - `email`: String
   - `password`: String
   - `info`: String
-  - `subject`: String
+  - `subjects`: List<Subject>
   - `organization`: Organization
   - `startHour` : Integer // a preferred hour to start lessons 24h format
+  - `startMin` : Integer 
   - `endtHour` : Integer // a preferred hour to finish lessons 24h format
+  - `endtMin` : Integer 
   - `plannedLessons`: List<Lesson>
   - `completedLessons`: List<Lesson>
   - `paymentsFromStudents`: List<Payment>
+
+
+### Subject
+
+Represents a subject to be teached.
+
+- **Attributes:**
+  - `id`: Long
+  - `category`: String
+  - `subject`: String
+  - `level`: String
 
 ### LessonAssessment
 

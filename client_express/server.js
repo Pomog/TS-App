@@ -4,6 +4,7 @@ import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import dotenv from "dotenv";
 import axios from "axios";
+import { Teacher, LessonAssessment, Lesson, Payment } from "./classes.js";
 
 import categories from "./category_setup.js";
 
@@ -65,6 +66,8 @@ function validateTeacherData(data) {
 app.post("/teacher", async (req, res) => {
   console.log("......teacher....\n", req.body);
   const teacherData = req.body
+  const {name, email, password, info, organization, startHour, startMin, endHour, endMin, subjects}=req.body;
+  const newTeacher = new Teacher(name, email, password, info, )
   let validationResult = validateTeacherData(teacherData);
   if (validationResult.isValid) {
     console.log("Validation successful!");
