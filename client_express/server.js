@@ -26,6 +26,11 @@ app.get("/new_teacher_setup", async (req,res)=>{
     res.status(200).render("new_teacher_setup.ejs",{categories})
 })
 
+app.post("/teacher",async(req,res)=>{
+    console.log("......teacher....\n",req.body);
+
+})
+
 
 app.listen(PORT, (err)=>{
     if(err) throw err;

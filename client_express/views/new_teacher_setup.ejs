@@ -49,43 +49,76 @@
         <h2>Welcome, New Teacher!</h2>
         <p>Please complete your profile by filling out the information below.</p>
         
-        <form>
+        <form action="/teacher" method="post">
             <div class="form-group">
                 <label for="teacherName">Full Name</label>
-                <input type="text" class="form-control" id="teacherName" placeholder="Enter your full name" required>
+                <input type="text" class="form-control" id="teacherName" name="name" placeholder="Enter your full name" value="Den(test name)" required>
             </div>
             <div class="form-group">
                 <label for="teacherEmail">Email</label>
-                <input type="email" class="form-control" id="teacherEmail" placeholder="Enter your email" required>
+                <input type="email" class="form-control" id="teacherEmail" name="email" placeholder="Enter your email" value="den@ver" required>
             </div>
             <div class="form-group">
-                <label for="teacherExperience">Teaching Experience</label>
-                <textarea class="form-control" id="teacherExperience" rows="3" placeholder="Describe your teaching experience" required></textarea>
+                <label for="teacherPassword">Password</label>
+                <input type="password" class="form-control" id="teacherPassword" name="password" placeholder="Enter your password" value="123" required>
             </div>
             <div class="form-group">
-                <label for="teacherAvailability">Availability</label>
-                <input type="text" class="form-control" id="teacherAvailability" placeholder="Enter your availability (e.g., weekdays 9 AM - 5 PM)" required>
+                <label for="teacherInfo">Information</label>
+                <textarea class="form-control" id="teacherInfo" name="info" rows="3" placeholder="Describe yourself" required>I'm a teacher after all!</textarea>
             </div>
             <div class="form-group">
-                <label for="lessonFees">Lesson Fees</label>
-                <input type="number" class="form-control" id="lessonFees" placeholder="Enter your lesson fee per hour" required>
+                <label for="teacherOrganization">Organization</label>
+                <input type="text" class="form-control" id="teacherOrganization" name="organization" placeholder="Enter your organization" value="Main" required>
             </div>
+            
+            <div class="form-group">
+                <label for="startHour">Preferred Start Hour</label>
+                <div class="d-flex">
+                    <select class="form-control" id="startHour" name="startHour" required>
+                        <% for (let i = 0; i < 24; i++) { %>
+                            <option value="<%= i %>"><%= i.toString().padStart(2, '0') %></option>
+                        <% } %>
+                    </select>
+                    <select class="form-control" id="startMinute" name="startMinute" required>
+                        <% for (let i = 0; i < 60; i += 15) { %>
+                            <option value="<%= i %>"><%= i.toString().padStart(2, '0') %></option>
+                        <% } %>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="endHour">Preferred End Hour</label>
+                <div class="d-flex">
+                    <select class="form-control" id="endHour" name="endHour" required>
+                        <% for (let i = 0; i < 24; i++) { %>
+                            <option value="<%= i %>"><%= i.toString().padStart(2, '0') %></option>
+                        <% } %>
+                    </select>
+                    <select class="form-control" id="endMinute" name="endMinute" required>
+                        <% for (let i = 0; i < 60; i += 15) { %>
+                            <option value="<%= i %>"><%= i.toString().padStart(2, '0') %></option>
+                        <% } %>
+                    </select>
+                </div>
+            </div>
+            
+            
 
             <h4>Select Subjects and Levels</h4>
             <% if (locals.categories) { %>
             <% for (let category in categories) { %>
                 <div class="form-group">
                     <label for="<%= category %>"><%= category %></label>
-                    <select multiple class="form-control" id="<%= category %>">
+                    <select multiple class="form-control" id="<%= category %>" name="subjects[]">
                         <% if (Array.isArray(categories[category])) { %>
                             <% categories[category].forEach(subject => { %>
-                                <option value="<%= subject %>"><%= subject %></option>
+                                <option value="<%= category %>:<%= subject %>"><%= subject %></option>
                             <% }); %>
                         <% } else { %>
                             <% for (let subject in categories[category]) { %>
                                 <optgroup label="<%= subject %>">
                                     <% categories[category][subject].forEach(level => { %>
-                                        <option value="<%= level %>"><%= level %></option>
+                                        <option value="<%= category %>:<%= subject %> - <%= level %>"><%= level %></option>
                                     <% }); %>
                                 </optgroup>
                             <% } %>
@@ -100,11 +133,11 @@
             <h5>Can't find needed category? Add a new category and level:</h5>
             <div class="form-group">
                 <label for="newCategory">New Category</label>
-                <input type="text" class="form-control" id="newCategory" placeholder="Enter new category">
+                <input type="text" class="form-control" id="newCategory" name="newCategory" placeholder="Enter new category">
             </div>
             <div class="form-group">
                 <label for="newLevel">New Level</label>
-                <input type="text" class="form-control" id="newLevel" placeholder="Enter new level">
+                <input type="text" class="form-control" id="newLevel" name="newLevel" placeholder="Enter new level">
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>

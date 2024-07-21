@@ -30,6 +30,7 @@ Represents an educator employed by an organization.
   - `name`: String
   - `email`: String
   - `password`: String
+  - `info`: String
   - `subject`: String
   - `organization`: Organization
   - `startHour` : Integer // a preferred hour to start lessons 24h format
