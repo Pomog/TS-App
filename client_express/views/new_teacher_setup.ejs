@@ -49,14 +49,14 @@
         <h2>Welcome, New Teacher!</h2>
         <p>Please complete your profile by filling out the information below.</p>
         
-        <form action="/teacher" method="post">
+        <form id="teacherForm" action="/teacher" method="post">
             <div class="form-group">
                 <label for="teacherName">Full Name</label>
                 <input type="text" class="form-control" id="teacherName" name="name" placeholder="Enter your full name" value="Den(test name)" required>
             </div>
             <div class="form-group">
                 <label for="teacherEmail">Email</label>
-                <input type="email" class="form-control" id="teacherEmail" name="email" placeholder="Enter your email" value="den@ver" required>
+                <input type="email" class="form-control" id="teacherEmail" name="email" placeholder="Enter your email" value="den@ver.com" required>
             </div>
             <div class="form-group">
                 <label for="teacherPassword">Password</label>
@@ -101,8 +101,6 @@
                     </select>
                 </div>
             </div>
-            
-            
 
             <h4>Select Subjects and Levels</h4>
             <% if (locals.categories) { %>
@@ -132,12 +130,16 @@
 
             <h5>Can't find needed category? Add a new category and level:</h5>
             <div class="form-group">
-                <label for="newCategory">New Category</label>
-                <input type="text" class="form-control" id="newCategory" name="newCategory" placeholder="Enter new category">
+                <label for="newCategory">Write Category</label>
+                <input type="text" class="form-control" id="newCategory"  placeholder="Enter category">
+            </div>
+            <div class="form-group">
+                <label for="newCategory">Write Subject</label>
+                <input type="text" class="form-control" id="newSubject"  placeholder="Enter new subject">
             </div>
             <div class="form-group">
                 <label for="newLevel">New Level</label>
-                <input type="text" class="form-control" id="newLevel" name="newLevel" placeholder="Enter new level">
+                <input type="text" class="form-control" id="newLevel"  placeholder="Enter level">
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -152,5 +154,19 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.getElementById('teacherForm').addEventListener('submit', function(event) {
+            const newCategory = document.getElementById('newCategory').value.trim();
+            const newLevel = document.getElementById('newLevel').value.trim();
+            if (newCategory && newLevel) {
+                const subjectsSelect = document.createElement('input');
+                subjectsSelect.type = 'hidden';
+                subjectsSelect.name = 'subjects[]';
+                subjectsSelect.value = `${newCategory} - ${newLevel}`;
+                this.appendChild(subjectsSelect);
+            }
+        });
+    </script>
 </body>
 </html>
