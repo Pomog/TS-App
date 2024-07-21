@@ -1,0 +1,23 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1 {
+    margin-bottom: 1em;
+}
+
+p.lead {
+    margin-bottom: 1.5em;
+}
+
+.btn-lg {
+    padding: 0.75em 1.25em;
+}

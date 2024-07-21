@@ -5,6 +5,9 @@ import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import dotenv from "dotenv";
 import axios from "axios";
 
+
+import categories from "./category_setup.js";
+
 dotenv.config();
 
 const app = express();
@@ -15,6 +18,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 
-app.get("/teacher_create", async (req,res)=>{
-    res.status(200).render("teacher_create.html")
+
+app.get("/",async (req,res)=>{
+    res.status(200).render("select_page.ejs")
+})
+app.get("/new_teacher_setup", async (req,res)=>{
+    res.status(200).render("new_teacher_setup.ejs",{categories})
+})
+
+
+app.listen(PORT, (err)=>{
+    if(err) throw err;
+    console.log("Proxy server is running on port: ",PORT);
 })
