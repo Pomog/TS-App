@@ -79,7 +79,7 @@
                             <option value="<%= i %>"><%= i.toString().padStart(2, '0') %></option>
                         <% } %>
                     </select>
-                    <select class="form-control" id="startMinute" name="startMinute" required>
+                    <select class="form-control" id="startMin" name="startMin" required>
                         <% for (let i = 0; i < 60; i += 15) { %>
                             <option value="<%= i %>"><%= i.toString().padStart(2, '0') %></option>
                         <% } %>
@@ -94,7 +94,7 @@
                             <option value="<%= i %>"><%= i.toString().padStart(2, '0') %></option>
                         <% } %>
                     </select>
-                    <select class="form-control" id="endMinute" name="endMinute" required>
+                    <select class="form-control" id="endMin" name="endMin" required>
                         <% for (let i = 0; i < 60; i += 15) { %>
                             <option value="<%= i %>"><%= i.toString().padStart(2, '0') %></option>
                         <% } %>

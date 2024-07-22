@@ -12,20 +12,20 @@ class Organization {
 
 // Teacher class
 class Teacher {
-    constructor(name, email, password, info, subject, organization, startHour, startMin, endHour, endMin, plannedLessons = [], completedLessons = [], paymentsFromStudents = []) {
+    constructor(name, email, password, info, subjects, organization, startHour, startMin, endHour, endMin, plannedLessons = [], completedLessons = [], paymentsFromStudents = []) {
         this.name = name || 'Default Teacher';
         this.email = email || 'teacher@example.com';
         this.password = password || 'password';
         this.info = info || 'Default Info';
-        this.subject = subject || 'Default Subject';
+        this.subjects = subjects || [];
         this.organization = organization || new Organization();
         this.startHour = startHour || 9 // Default start time 09:00
         this.startMin = startMin
         this.endHour = endHour || 17 // Default end time 17:00
         this.endMin = endMin
-        this.plannedLessons = plannedLessons;
-        this.completedLessons = completedLessons;
-        this.paymentsFromStudents = paymentsFromStudents;
+        this.plannedLessons = plannedLessons || [], 
+        this.completedLessons = completedLessons || [], 
+        this.paymentsFromStudents = paymentsFromStudents || []
     }
 }
 
@@ -42,7 +42,7 @@ class Subject {
 class LessonAssessment {
     constructor(time, lesson, accuracy_patience, explanation, teaching_materials, responsiveness) {
         this.time = time || 1; //duration of the lesson
-        this.lesson = lesson || null; // Should be an instance of Lesson
+        this.lesson = lesson || new Lesson(); // Should be an instance of Lesson
         this.accuracy_patience = accuracy_patience || 1; //from 1 to 5
         this.explanation = explanation || 1; //from 1 to 5
         this.teaching_materials = teaching_materials || 1; //from 1 to 5
@@ -105,4 +105,4 @@ class Payment {
 }
 
 
-export {Organization, Teacher, LessonAssessment, Student, Lesson, PersonalCabinet, Payment}
+export {Organization, Teacher, LessonAssessment, Student, Lesson, PersonalCabinet, Payment, Subject}

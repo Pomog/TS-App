@@ -4,7 +4,7 @@ import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import dotenv from "dotenv";
 import axios from "axios";
-import { Teacher, LessonAssessment, Lesson, Payment } from "./classes.js";
+import { Teacher, LessonAssessment, Lesson, Payment, Subject } from "./classes.js";
 
 import categories from "./category_setup.js";
 
@@ -63,14 +63,34 @@ function validateTeacherData(data) {
   }
 }
 
+function convertToSubjects(inputArray) {
+    return inputArray.map(item => {
+        // Split the input string into category and the rest
+        let [category, rest] = item.split(':');
+
+        // Split the rest into subject and level
+        let [subject, level] = rest.split(' - ');
+
+        // Trim whitespace from category, subject, and level
+        category = category.trim();
+        subject = subject.trim();
+        level = level.trim();
+
+        // Create a new Subject object
+        return new Subject(category, subject, level);
+    });
+}
+
 app.post("/teacher", async (req, res) => {
   console.log("......teacher....\n", req.body);
   const teacherData = req.body
   const {name, email, password, info, organization, startHour, startMin, endHour, endMin, subjects}=req.body;
-  const newTeacher = new Teacher(name, email, password, info, )
+  const teacher = new Teacher(name, email, password, info, convertToSubjects(subjects), organization, startHour, startMin, endHour, endMin,  )
+  console.log("........teacher....\n", teacher)
   let validationResult = validateTeacherData(teacherData);
   if (validationResult.isValid) {
     console.log("Validation successful!");
+    res.status(200).render("teacher.ejs",{teacher})
   } else {
     console.log("Validation errors:", validationResult.errors);
   }

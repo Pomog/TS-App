@@ -67,8 +67,8 @@
     <div class="container content">
         <div class="profile-section">
             <img src="<%= locals.teacher && teacher.profilePicUrl ? teacher.profilePicUrl : 'default-profile-pic.jpg' %>" alt="Profile Picture" class="profile-pic">
-            <h2><%= locals.teacher && teacher.name ? teacher.name : 'Teacher\'s Name' %></h2>
-            <p><%= locals.teacher && teacher.info ? teacher.info : 'Some information about the teacher.' %></p>
+            <h2><%= locals.teacher ? teacher.name : 'Teacher\'s Name' %></h2>
+            <p><%= locals.teacher ? teacher.info : 'Some information about the teacher.' %></p>
         </div>
 
         <div class="row content-section">
@@ -135,6 +135,42 @@
                 </div>
             </div>
         </div>
+        
+        <div class="row content-section">
+            <div class="col-md-12">
+                <h3>Subjects</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <% if (locals.teacher && teacher.subjects && teacher.subjects.length > 0) { %>
+                            <ul>
+                                <% teacher.subjects.forEach(function(subject) { %>
+                                    <li>
+                                        <strong>Category:</strong> <%= subject.category %> <br>
+                                        <strong>Subject:</strong> <%= subject.subject %> <br>
+                                        <strong>Level:</strong> <%= subject.level %>
+                                    </li>
+                                <% }) %>
+                            </ul>
+                        <% } else { %>
+                            <p>No subjects available.</p>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row content-section">
+            <div class="col-md-12">
+                <h3>Availability</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <p><strong>Start Time:</strong> <%= locals.teacher ? `${teacher.startHour}:${teacher.startMin.padStart(2, '0')}` : 'N/A' %></p>
+                        <p><strong>End Time:</strong> <%= locals.teacher ? `${teacher.endHour}:${teacher.endMin.padStart(2, '0')}` : 'N/A' %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <div class="footer">
