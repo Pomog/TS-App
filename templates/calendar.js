@@ -1,10 +1,16 @@
-/*
+/**
 should be provided access to the lessonsEvents variable
 lessonsEvents - list of the Event Object
 https://fullcalendar.io/docs/event-object
 
 which is currently created form user object
- */
+@param {Object} user - The object of a teacher or a student.
+@param {string} elementID - The ID of the HTML element where the calendar will be rendered.
+@param {string} initialView - A name of the available views, such as 'dayGridWeek', 'timeGridDay', 'listWeek' .
+@param {string} viewStyle - The style of the view ('default' or 'simple').
+
+@returns {Function} A function that initializes and renders the FullCalendar.
+*/
 function populateCalendar(user, elementID, initialView, viewStyle) {
 
     // Convert planned lessons to FullCalendar events
