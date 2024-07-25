@@ -1,9 +1,9 @@
 /**
 should be provided access to the lessonsEvents variable
 lessonsEvents - list of the Event Object
+which is currently created form user object
 https://fullcalendar.io/docs/event-object
 
-which is currently created form user object
 @param {Object} user - The object of a teacher or a student.
 @param {string} elementID - The ID of the HTML element where the calendar will be rendered.
 @param {string} initialView - A name of the available views, such as 'dayGridWeek', 'timeGridDay', 'listWeek' .
