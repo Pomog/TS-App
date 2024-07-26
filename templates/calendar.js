@@ -12,6 +12,18 @@ https://fullcalendar.io/docs/event-object
 @returns {Function} A function that initializes and renders the FullCalendar.
 */
 function populateCalendar(user, elementID, initialView, viewStyle) {
+    // Check if the required parameters are present
+    if (!user || !elementID || !initialView || !viewStyle) {
+        const errorMessage = "Error: Missing required parameters. Please provide user, elementID, initialView, and viewStyle.";
+        return function() {
+            const calendarEl = document.getElementById(elementID);
+            if (calendarEl) {
+                calendarEl.innerHTML = `<div style="color: red;">${errorMessage}</div>`;
+            } else {
+                console.error(errorMessage);
+            }
+        };
+    }
 
     // Convert planned lessons to FullCalendar events
     const lessonsEvents = user.lessons.map(lesson => ({
